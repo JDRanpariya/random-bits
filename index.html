@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Intro to XML</title>
+    <title>Title</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -16,18 +16,24 @@
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
     
       code {
+        background: #e7e8e2;
         border-radius: 5px;
       }
+
+      .code-inv{
+          background-color: #272822;
+          color: #e7e8e2;
+      }
       .inverse {
-        background: #272822;
-        color: #777872;
+        background: #282822;
+        color: #D2B48C;
         text-shadow: 0 0 20px #333;
       }
       .inverse h1, .inverse h2 {
         color: #f3f3f3;
         line-height: 0.8em;
       }
-      .rev-inv h1, .rev-inv h2, .rev-inv body,p {
+      .rev-inv h1, .rev-inv h2, .rev-inv body,p,h4 {
           color:#272822;
       }
       .footnote {
@@ -48,9 +54,7 @@
       .points {
           line-height: 2em;
       }
-      .img-right{
-
-      }
+      
     
     </style>
   </head>
@@ -71,7 +75,7 @@ class: rev-inv, agenda
 
 2. XML vs HTML
 
-3. XML Syntex
+3. Structure os an XML document
 
 4. XML Queries and Mediators
 
@@ -86,13 +90,108 @@ class: inverse, points, img-right
 - Was Introduced by World WIde Web Consortium (W3C) in 1998
 - It acts as bridge for data exchange on the web
 
-![xml](https://lyfin360.com/wp-content/uploads/2020/08/XML-full-form.png)
+![xml](https://lyfpythonin360.com/wp-content/uploads/2020/08/XML-full-form.png)
 
 ---
 class:center, middle, rev-inv
 # SGML
 #![SGML](https://cscie12.dce.harvard.edu/lecture_notes/2007-08/20080130/images/sgml-xml-relationships.png)
+---
+class: inverse, points, code
+# Difference between XML & HTML 
 
+- Html tags have a fixed meaning(i.e img tag always relates to Image) and browsers know what it is.
+- XML tags are different for different usecases and are user defined.
+- HTML tags are used for displaying content on web.
+- XML tags are used to describe documents and data.
+```html
+<!DOCTYPE html>
+<html>
+    <h1> html vs xml </h1>
+</html> 
+```
+---
+Class: rev-inv
+# Example snippets
+### HTML
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <img src="images/firefox-icon.png" alt="My test image">
+  </body>
+</html>
+```
+### XML
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<message>
+    <warning>
+         Hello World
+    </warning>
+</message>
+```
+---
+class: inverse
+# Structure of XML document
+### XML declaration
+- XML - declaration is not a tag. It is used for the transmission of the meta-data of a document.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+```
+    - Attributes
+        - version: Used version of XML in this document.
+        - encoding: type of encoding used.
+        
+### Comments
+
+```xml
+<!-- Comment -->
+```
+---
+class: rev-inv,points
+# "Correct" XML (valid and well-formed)
+### Correct design rules
+#### For an XML document to be correct, the following conditions must be fulfilled:
+- Doument must be well-formed.
+- Document must conform to all XML syntax rules.
+- Document must conform to semantic rules, which are usually set in an XML schema or a DTD.
+- A document that contains an undefined tag is invalid. For example, if we never defined the <warning> tag, the document above wouldn't be valid.
+.footnote[Reference: [Document Type Definition](https://developer.mozilla.org/en-US/docs/Glossary/Doctype)]
+---
+class:inverse
+# Entities
+- Like HTML, XML offers methods (called entities) for referring to some special reserved characters (such as a greater than sign which is used for tags).
+```md
+< > & " '
+```
+- even though there are only 5 declared entities, we can add more using documents DTD.For ejemplo, to create new ```&warning;``` entity, we can write
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE body [
+  <!ENTITY warning "Warning: Something bad happened... please refresh and try again.">
+]>
+<body>
+  <message> &warning; </message>
+</body>
+```
+- You can also use numeric character references to specify special characters; for example, 
+'&#xA9;' is the "©" symbol.
+---
+class:inverse, points
+# Advantages of XML
+- XML is text (Unicode) based.
+    - Takes up less space.
+    - Can be transmitted efficiently.
+- One XML document can be displayed differently in different Media.
+    - Html, video, CD, DVD
+    - You only have to change the XML document in order to change all the rest.
+- XML documents can be modularized.
+- And parts can be reused.
 ---
 class: inverse, tnx
 # Thank you
