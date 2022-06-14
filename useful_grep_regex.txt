@@ -1,1 +1,5 @@
+curl https://github.com/ErikCH/DevYouTubeList | grep user | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | grep "/channel/" | sort -u > yt_channels.txt
+
 cat yt_users.txt | sed 's,https://www.youtube.com/user/,,g' | sed 's,http://www.youtube.com/user/,,g' | sed 's,https://youtube.com/user/,,g'
+
+cat yt_users.txt | sed 's,/,,g' | sed 's,/featured,,g' > ytusers.txt
