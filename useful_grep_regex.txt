@@ -1,0 +1,1 @@
+cat yt_users.txt | sed 's,https://www.youtube.com/user/,,g' | sed 's,http://www.youtube.com/user/,,g' | sed 's,https://youtube.com/user/,,g'
