@@ -5,3 +5,9 @@ ssh-add ~/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub # will copy the sshkey to clipboard
 
 next paste it to the ssh key saction on github, gitlab etc.
+
+
+# It's time for gpg as well boi
+
+- [ ] https://markentier.tech/posts/2021/02/github-with-multiple-profiles-gpg-ssh-keys/#gpg-key-management
+- [ ] 
