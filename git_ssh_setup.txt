@@ -31,7 +31,9 @@ next paste it to the ssh key saction on github, gitlab etc.
 	insteadOf = git@github.com
 
 
+
+
 # It's time for gpg as well boi
 
 - [ ] https://markentier.tech/posts/2021/02/github-with-multiple-profiles-gpg-ssh-keys/#gpg-key-management
-- [ ] 
+- [ ] gpg --armor --export YOUR-KEY 
