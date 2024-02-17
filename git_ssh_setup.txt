@@ -7,6 +7,30 @@ xclip -sel clip < ~/.ssh/id_rsa.pub # will copy the sshkey to clipboard
 next paste it to the ssh key saction on github, gitlab etc.
 
 
+# Main Git Config
+[commit]
+ 	gpgsign = true
+ 
+[user]
+	useConfigOnly = true
+
+[includeIf "gitdir:/mnt/HardDisk/jaydeep/"]
+	path = /mnt/HardDisk/jaydeep/.gitconfig
+
+# Personal Config
+
+[user]
+	name = jd-inferq
+	email = jaydeep@inferq.com
+	signingKey = <well-have-your-own>
+
+[commit]
+    gpgSign = true
+
+[url "git@github.com-jd"]
+	insteadOf = git@github.com
+
+
 # It's time for gpg as well boi
 
 - [ ] https://markentier.tech/posts/2021/02/github-with-multiple-profiles-gpg-ssh-keys/#gpg-key-management
